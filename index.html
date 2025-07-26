@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Digitales Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 20px;
+        }
+
+        .logo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .logo:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .banner-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .banner {
+            display: flex;
+            width: 400%;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .banner-btn {
+            width: 25%;
+            padding: 30px 0;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .banner-btn i {
+            font-size: 36px;
+            transition: transform 0.3s ease;
+        }
+
+        .banner-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        .banner-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .banner-btn:hover::before {
+            transform: translateY(0);
+        }
+
+        .banner-btn:nth-child(1) {
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+        }
+
+        .banner-btn:nth-child(2) {
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+        }
+
+        .banner-btn:nth-child(3) {
+            background: linear-gradient(45deg, #1D976C, #93F9B9);
+        }
+
+        .banner-btn:nth-child(4) {
+            background: linear-gradient(45deg, #FF8008, #FFC837);
+        }
+
+        .banner-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .indicator.active {
+            background-color: white;
+            transform: scale(1.2);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Banner de publicidad */
+        .ad-banner {
+            width: 100%;
+            background: linear-gradient(to right, #ffffff, #1D976C);
+            color: #1a1a2e;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            height: 60px;
+        }
+
+        .ad-message {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            left: 0;
+        }
+
+        .ad-message.active {
+            opacity: 1;
+        }
+
+        /* Botones fijos */
+        .fixed-buttons {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .fixed-btn {
+            flex: 1;
+            padding: 20px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .fixed-btn i {
+            font-size: 28px;
+        }
+
+        .fixed-btn:nth-child(1) {
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+        }
+
+        .fixed-btn:nth-child(2) {
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+        }
+
+        .fixed-btn:nth-child(3) {
+            background: linear-gradient(45deg, #1D976C, #93F9B9);
+        }
+
+        .fixed-btn:nth-child(4) {
+            background: linear-gradient(45deg, #FF8008, #FFC837);
+        }
+
+        .fixed-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #2c3e50, #1a1a2e);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            transform: scale(0.9);
+            animation: scaleUp 0.3s ease forwards;
+            text-align: center;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .modal-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleUp {
+            to { transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        .active-indicator {
+            animation: pulse 1s;
+        }
+
+        @media (max-width: 600px) {
+            .banner-btn {
+                font-size: 18px;
+                padding: 25px 0;
+            }
+            
+            .banner-btn i {
+                font-size: 28px;
+            }
+            
+            .logo {
+                width: 90px;
+            }
+            
+            .ad-banner {
+                font-size: 16px;
+                height: 50px;
+            }
+            
+            .fixed-btn {
+                padding: 15px 0;
+                font-size: 16px;
+            }
+            
+            .fixed-btn i {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg" alt="Logo" class="logo">
+        <h2>Servicios Digitales Premium</h2>
+    </div>
+
+    <div class="main-container">
+        <div class="banner-container">
+            <div class="banner">
+                <button class="banner-btn active" data-target="streaming">
+                    <i class="fas fa-film"></i>
+                    STREAMING
+                </button>
+                <button class="banner-btn" data-target="juegos">
+                    <i class="fas fa-gamepad"></i>
+                    JUEGOS
+                </button>
+                <button class="banner-btn" data-target="recargas">
+                    <i class="fas fa-money-bill-wave"></i>
+                    RECARGAS
+                </button>
+                <button class="banner-btn" data-target="aplicaciones">
+                    <i class="fas fa-mobile-alt"></i>
+                    APLICACIONES
+                </button>
+            </div>
+            
+            <div class="indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+            </div>
+        </div>
+
+        <!-- Banner de publicidad -->
+        <div class="ad-banner">
+            <div class="ad-message active">
+                ¡COMPRA TUS CUENTAS DE STREAMING AL MEJOR PRECIO!
+            </div>
+            <div class="ad-message">
+                RECARGAS DE JUEGOS: FREE FIRE, ROBLOX, FORTNITE Y MÁS
+            </div>
+            <div class="ad-message">
+                APLICACIONES PREMIUM: CANVA PRO, CAPCUT, SPOTIFY Y MÁS
+            </div>
+            <div class="ad-message">
+                ¡OFERTAS EXCLUSIVAS SOLO POR TIEMPO LIMITADO!
+            </div>
+        </div>
+
+        <!-- Botones fijos -->
+        <div class="fixed-buttons">
+            <button class="fixed-btn" data-target="streaming">
+                <i class="fas fa-film"></i>
+                STREAMING
+            </button>
+            <button class="fixed-btn" data-target="juegos">
+                <i class="fas fa-gamepad"></i>
+                JUEGOS
+            </button>
+            <button class="fixed-btn" data-target="recargas">
+                <i class="fas fa-money-bill-wave"></i>
+                RECARGAS
+            </button>
+            <button class="fixed-btn" data-target="aplicaciones">
+                <i class="fas fa-mobile-alt"></i>
+                APLICACIONES
+            </button>
+        </div>
+    </div>
+
+    <!-- Ventana Emergente -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-title">Título</div>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-icon" id="modal-icon"></div>
+            <div class="modal-body" id="modal-body">
+                Contenido de la ventana emergente...
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="modal-btn">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del banner principal
+            const banner = document.querySelector('.banner');
+            const buttons = document.querySelectorAll('.banner-btn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Elementos del modal
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalIcon = document.getElementById('modal-icon');
+            const modalBody = document.getElementById('modal-body');
+            const modalClose = document.getElementById('modal-close');
+            const modalBtn = document.getElementById('modal-btn');
+            
+            // Elementos del banner de publicidad
+            const adMessages = document.querySelectorAll('.ad-message');
+            
+            // Botones fijos
+            const fixedButtons = document.querySelectorAll('.fixed-btn');
+            
+            let currentIndex = 0;
+            let intervalId;
+            let isAnimating = false;
+            let currentAdIndex = 0;
+            let adIntervalId;
+            
+            // Datos para cada modal
+            const modalData = {
+                streaming: {
+                    title: "CUENTAS DE STREAMING",
+                    icon: '<i class="fas fa-film"></i>',
+                    content: "Cuentas premium para las mejores plataformas:<br><br>" +
+                             "• <strong>Netflix</strong> - Desde $5.99/mes<br>" +
+                             "• <strong>Disney+</strong> - Desde $4.99/mes<br>" +
+                             "• <strong>HBO Max</strong> - Desde $6.99/mes<br>" +
+                             "• <strong>Amazon Prime</strong> - Desde $7.99/mes<br><br>" +
+                             "¡Garantía de 30 días en todas las cuentas!",
+                    buttonText: "Comprar Ahora"
+                },
+                juegos: {
+                    title: "RECARGAS DE JUEGOS",
+                    icon: '<i class="fas fa-gamepad"></i>',
+                    content: "Recarga tus juegos favoritos al instante:<br><br>" +
+                             "• <strong>Free Fire Diamantes</strong> - 20% de descuento<br>" +
+                             "• <strong>Roblox Robux</strong> - Paquetes desde $4.99<br>" +
+                             "• <strong>Fortnite V-Bucks</strong> - Ofertas exclusivas<br>" +
+                             "• <strong>Steam Wallet</strong> - Recarga directa<br><br>" +
+                             "Entrega inmediata por correo electrónico",
+                    buttonText: "Recargar Juego"
+                },
+                recargas: {
+                    title: "RECARGAS DIGITALES",
+                    icon: '<i class="fas fa-money-bill-wave"></i>',
+                    content: "Servicios de recarga disponibles:<br><br>" +
+                             "• <strong>Recarga móvil</strong> - Todas las compañías<br>" +
+                             "• <strong>Tarjetas de regalo</strong> - Amazon, Google Play, iTunes<br>" +
+                             "• <strong>Criptomonedas</strong> - Compra/venta de Bitcoin<br>" +
+                             "• <strong>Pagos internacionales</strong> - Western Union, MoneyGram<br><br>" +
+                             "Transacciones seguras y rápidas",
+                    buttonText: "Hacer Recarga"
+                },
+                aplicaciones: {
+                    title: "APLICACIONES PREMIUM",
+                    icon: '<i class="fas fa-mobile-alt"></i>',
+                    content: "Acceso a aplicaciones premium:<br><br>" +
+                             "• <strong>Canva Pro</strong> - $3.99/mes (oficial $12.99)<br>" +
+                             "• <strong>CapCut Pro</strong> - Acceso ilimitado<br>" +
+                             "• <strong>Spotify Premium</strong> - Sin anuncios<br>" +
+                             "• <strong>YouTube Premium</strong> - $2.99/mes<br><br>" +
+                             "Cuentas personales y familiares",
+                    buttonText: "Obtener Ahora"
+                }
+            };
+            
+            // Rotación del banner principal
+            function rotateBanner() {
+                if (isAnimating) return;
+                
+                isAnimating = true;
+                currentIndex = (currentIndex + 1) % buttons.length;
+                updateBanner();
+                
+                const activeIndicator = document.querySelector('.indicator.active');
+                activeIndicator.classList.add('active-indicator');
+                setTimeout(() => {
+                    activeIndicator.classList.remove('active-indicator');
+                    isAnimating = false;
+                }, 1000);
+            }
+            
+            function updateBanner() {
+                const offset = -currentIndex * 25;
+                banner.style.transform = `translateX(${offset}%)`;
+                
+                buttons.forEach((btn, index) => {
+                    btn.classList.toggle('active', index === currentIndex);
+                });
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Rotación del banner de publicidad
+            function rotateAdBanner() {
+                adMessages.forEach(msg => msg.classList.remove('active'));
+                adMessages[currentAdIndex].classList.add('active');
+                currentAdIndex = (currentAdIndex + 1) % adMessages.length;
+            }
+            
+            // Mostrar modal
+            function showModal(target) {
+                const data = modalData[target];
+                modalTitle.textContent = data.title;
+                modalIcon.innerHTML = data.icon;
+                modalBody.innerHTML = data.content;
+                modalBtn.textContent = data.buttonText;
+                
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Ocultar modal
+            function hideModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Event listeners para los indicadores
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    if (isAnimating) return;
+                    
+                    currentIndex = parseInt(this.getAttribute('data-slide'));
+                    updateBanner();
+                    stopAutoRotation();
+                    startAutoRotation();
+                    
+                    this.classList.add('active-indicator');
+                    setTimeout(() => {
+                        this.classList.remove('active-indicator');
+                    }, 1000);
+                });
+            });
+            
+            // Event listeners para los botones del banner
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    showModal(target);
+                });
+            });
+            
+            // Event listeners para los botones fijos
+            fixedButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    showModal(target);
+                });
+            });
+            
+            // Cerrar modal
+            modalClose.addEventListener('click', hideModal);
+            modalBtn.addEventListener('click', hideModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+            
+            // Control de rotación automática
+            function startAutoRotation() {
+                intervalId = setInterval(rotateBanner, 3000);
+            }
+            
+            function stopAutoRotation() {
+                clearInterval(intervalId);
+            }
+            
+            // Iniciar rotaciones
+            startAutoRotation();
+            adIntervalId = setInterval(rotateAdBanner, 2500);
+            
+            // Pausar rotación con interacción del usuario
+            banner.addEventListener('mouseenter', stopAutoRotation);
+            banner.addEventListener('mouseleave', startAutoRotation);
+            banner.addEventListener('touchstart', stopAutoRotation);
+            banner.addEventListener('touchend', startAutoRotation);
+        });
+    </script>
+</body>
+</html>
