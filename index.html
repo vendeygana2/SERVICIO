@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios Digitales Premium</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg" type="image/jpg">
+    <link rel="apple-touch-icon" href="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <style>
         * {
             margin: 0;
@@ -20,22 +26,23 @@
             min-height: 100vh;
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             color: white;
-            padding: 20px;
+            padding: 15px;
         }
 
         .logo-container {
             position: relative;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             z-index: 100;
+            width: 100%;
         }
 
         .logo {
-            width: 120px;
+            width: 100px;
             height: auto;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             border: 3px solid white;
         }
@@ -46,16 +53,16 @@
 
         .main-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 500px;
         }
 
         .banner-container {
             width: 100%;
             position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
         }
 
         .banner {
@@ -66,25 +73,25 @@
 
         .banner-btn {
             width: 25%;
-            padding: 30px 0;
+            padding: 25px 0;
             border: none;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             color: white;
             cursor: pointer;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .banner-btn i {
-            font-size: 36px;
+            font-size: 30px;
             transition: transform 0.3s ease;
         }
 
@@ -125,23 +132,23 @@
         }
 
         .banner-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .indicators {
             position: absolute;
-            bottom: 15px;
+            bottom: 12px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 8px;
             z-index: 10;
         }
 
         .indicator {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.4);
             cursor: pointer;
@@ -160,16 +167,16 @@
             width: 100%;
             background: linear-gradient(to right, #ffffff, #1D976C);
             color: #1a1a2e;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
             text-align: center;
             font-weight: bold;
-            font-size: 18px;
-            margin: 10px 0 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            margin: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             position: relative;
-            height: 60px;
+            height: 50px;
         }
 
         .ad-message {
@@ -182,25 +189,28 @@
             opacity: 0;
             transition: opacity 0.5s ease;
             left: 0;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         .ad-message.active {
             opacity: 1;
         }
 
-        /* Botones fijos */
+        /* Botones fijos en GRID de 2 columnas */
         .fixed-buttons {
-            display: flex;
-            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 10px;
+            width: 100%;
         }
 
         .fixed-btn {
-            flex: 1;
-            padding: 20px 0;
+            width: 100%;
+            padding: 18px 0;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 18px;
             font-weight: bold;
             color: white;
@@ -210,12 +220,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .fixed-btn i {
-            font-size: 28px;
+            font-size: 26px;
         }
 
         .fixed-btn:nth-child(1) {
@@ -236,7 +246,7 @@
 
         .fixed-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         /* Modal */
@@ -256,11 +266,11 @@
 
         .modal-content {
             background: linear-gradient(145deg, #2c3e50, #1a1a2e);
-            padding: 30px;
-            border-radius: 15px;
+            padding: 25px;
+            border-radius: 12px;
             width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             position: relative;
             transform: scale(0.9);
             animation: scaleUp 0.3s ease forwards;
@@ -271,25 +281,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .modal-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: white;
         }
 
         .modal-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+            font-size: 36px;
+            margin-bottom: 12px;
         }
 
         .modal-close {
             background: none;
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 22px;
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -299,8 +309,9 @@
         }
 
         .modal-body {
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            font-size: 15px;
         }
 
         .modal-footer {
@@ -309,7 +320,7 @@
         }
 
         .modal-btn {
-            padding: 10px 25px;
+            padding: 10px 22px;
             border: none;
             border-radius: 50px;
             background: linear-gradient(45deg, #4776E6, #8E54E9);
@@ -317,12 +328,107 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 15px;
         }
 
         .modal-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Ventana emergente para iframes */
+        .iframe-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .iframe-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 40px 15px 15px;
+        }
+
+        .iframe-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1002;
+            transition: transform 0.3s;
+        }
+
+        .iframe-close:hover {
+            transform: rotate(90deg);
+            color: #FF416C;
+        }
+
+        .iframe-view {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* Banner de instalación de app */
+        .install-banner {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            align-items: center;
+            gap: 10px;
+            animation: slideUp 0.5s ease;
+        }
+
+        .install-banner img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .install-banner button {
+            background: white;
+            color: #4776E6;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .install-banner button:hover {
+            opacity: 0.9;
+        }
+
+        .install-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: 10px;
         }
 
         @keyframes fadeIn {
@@ -340,55 +446,82 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
+        @keyframes slideUp {
+            from { transform: translate(-50%, 100%); }
+            to { transform: translate(-50%, 0); }
+        }
+
         .active-indicator {
             animation: pulse 1s;
         }
 
-        @media (max-width: 600px) {
+        /* Ajustes adicionales para móviles pequeños */
+        @media (max-width: 400px) {
             .banner-btn {
                 font-size: 18px;
-                padding: 25px 0;
+                padding: 20px 0;
             }
             
             .banner-btn i {
-                font-size: 28px;
+                font-size: 26px;
             }
             
             .logo {
-                width: 90px;
+                width: 80px;
             }
             
             .ad-banner {
-                font-size: 16px;
-                height: 50px;
+                font-size: 14px;
+                height: 45px;
             }
             
             .fixed-btn {
-                padding: 15px 0;
+                padding: 16px 0;
                 font-size: 16px;
             }
             
             .fixed-btn i {
                 font-size: 24px;
             }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 20px;
+            }
+            
+            .iframe-close {
+                font-size: 24px;
+                right: 10px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Banner de instalación de app -->
+    <div class="install-banner" id="installBanner">
+        <img src="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg" alt="App Icon">
+        <span>Instalar Servicios Premium</span>
+        <button id="installButton">Instalar</button>
+        <button class="install-close" id="installClose">&times;</button>
+    </div>
+
     <div class="logo-container">
         <img src="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg" alt="Logo" class="logo">
         <h2>Servicios Digitales Premium</h2>
     </div>
 
-    <div class="main-container">
+    <div class="main-container" id="main-content">
         <div class="banner-container">
             <div class="banner">
-                <button class="banner-btn active" data-target="streaming">
+                <button class="banner-btn active" data-target="streaming" id="banner-streaming-btn">
                     <i class="fas fa-film"></i>
                     STREAMING
                 </button>
-                <button class="banner-btn" data-target="juegos">
+                <button class="banner-btn" data-target="juegos" id="banner-juegos-btn">
                     <i class="fas fa-gamepad"></i>
                     JUEGOS
                 </button>
@@ -396,7 +529,7 @@
                     <i class="fas fa-money-bill-wave"></i>
                     RECARGAS
                 </button>
-                <button class="banner-btn" data-target="aplicaciones">
+                <button class="banner-btn" data-target="aplicaciones" id="banner-aplicaciones-btn">
                     <i class="fas fa-mobile-alt"></i>
                     APLICACIONES
                 </button>
@@ -413,26 +546,26 @@
         <!-- Banner de publicidad -->
         <div class="ad-banner">
             <div class="ad-message active">
-                ¡COMPRA TUS CUENTAS DE STREAMING AL MEJOR PRECIO!
+                🎬 CUENTAS PREMIUM: Netflix, Disney+, HBO Max
             </div>
             <div class="ad-message">
-                RECARGAS DE JUEGOS: FREE FIRE, ROBLOX, FORTNITE Y MÁS
+                🎮 DIAMANTES Free Fire - ROBUX Roblox - V-Bucks Fortnite
             </div>
             <div class="ad-message">
-                APLICACIONES PREMIUM: CANVA PRO, CAPCUT, SPOTIFY Y MÁS
+                📱 APPS: Canva Pro, Spotify Premium, YouTube Premium
             </div>
             <div class="ad-message">
-                ¡OFERTAS EXCLUSIVAS SOLO POR TIEMPO LIMITADO!
+                ⚡ RECARGAS AL INSTANTE - GARANTÍA 100%
             </div>
         </div>
 
-        <!-- Botones fijos -->
+        <!-- Botones fijos en GRID de 2 columnas -->
         <div class="fixed-buttons">
-            <button class="fixed-btn" data-target="streaming">
+            <button class="fixed-btn" data-target="streaming" id="fixed-streaming-btn">
                 <i class="fas fa-film"></i>
                 STREAMING
             </button>
-            <button class="fixed-btn" data-target="juegos">
+            <button class="fixed-btn" data-target="juegos" id="fixed-juegos-btn">
                 <i class="fas fa-gamepad"></i>
                 JUEGOS
             </button>
@@ -440,7 +573,7 @@
                 <i class="fas fa-money-bill-wave"></i>
                 RECARGAS
             </button>
-            <button class="fixed-btn" data-target="aplicaciones">
+            <button class="fixed-btn" data-target="aplicaciones" id="fixed-aplicaciones-btn">
                 <i class="fas fa-mobile-alt"></i>
                 APLICACIONES
             </button>
@@ -461,6 +594,30 @@
             <div class="modal-footer">
                 <button class="modal-btn" id="modal-btn">Aceptar</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Ventana emergente de streaming -->
+    <div class="iframe-modal" id="streaming-modal">
+        <div class="iframe-content">
+            <button class="iframe-close" id="streaming-close">&times;</button>
+            <iframe src="https://vendeygana2.github.io/streaming/" class="iframe-view" id="streaming-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Ventana emergente de juegos -->
+    <div class="iframe-modal" id="juegos-modal">
+        <div class="iframe-content">
+            <button class="iframe-close" id="juegos-close">&times;</button>
+            <iframe src="https://vendeygana2.github.io/FREEFIRE/" class="iframe-view" id="juegos-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Ventana emergente de aplicaciones -->
+    <div class="iframe-modal" id="aplicaciones-modal">
+        <div class="iframe-content">
+            <button class="iframe-close" id="aplicaciones-close">&times;</button>
+            <iframe src="https://vendeygana2.github.io/canvacuenta/" class="iframe-view" id="aplicaciones-iframe"></iframe>
         </div>
     </div>
 
@@ -485,6 +642,30 @@
             // Botones fijos
             const fixedButtons = document.querySelectorAll('.fixed-btn');
             
+            // Elementos del modal de streaming
+            const streamingModal = document.getElementById('streaming-modal');
+            const streamingClose = document.getElementById('streaming-close');
+            const streamingIframe = document.getElementById('streaming-iframe');
+            
+            // Elementos del modal de juegos
+            const juegosModal = document.getElementById('juegos-modal');
+            const juegosClose = document.getElementById('juegos-close');
+            const juegosIframe = document.getElementById('juegos-iframe');
+            
+            // Elementos del modal de aplicaciones
+            const aplicacionesModal = document.getElementById('aplicaciones-modal');
+            const aplicacionesClose = document.getElementById('aplicaciones-close');
+            const aplicacionesIframe = document.getElementById('aplicaciones-iframe');
+            
+            // Contenido principal
+            const mainContent = document.getElementById('main-content');
+            
+            // Elementos para instalación de PWA
+            const installBanner = document.getElementById('installBanner');
+            const installButton = document.getElementById('installButton');
+            const installClose = document.getElementById('installClose');
+            let deferredPrompt;
+            
             let currentIndex = 0;
             let intervalId;
             let isAnimating = false;
@@ -493,28 +674,6 @@
             
             // Datos para cada modal
             const modalData = {
-                streaming: {
-                    title: "CUENTAS DE STREAMING",
-                    icon: '<i class="fas fa-film"></i>',
-                    content: "Cuentas premium para las mejores plataformas:<br><br>" +
-                             "• <strong>Netflix</strong> - Desde $5.99/mes<br>" +
-                             "• <strong>Disney+</strong> - Desde $4.99/mes<br>" +
-                             "• <strong>HBO Max</strong> - Desde $6.99/mes<br>" +
-                             "• <strong>Amazon Prime</strong> - Desde $7.99/mes<br><br>" +
-                             "¡Garantía de 30 días en todas las cuentas!",
-                    buttonText: "Comprar Ahora"
-                },
-                juegos: {
-                    title: "RECARGAS DE JUEGOS",
-                    icon: '<i class="fas fa-gamepad"></i>',
-                    content: "Recarga tus juegos favoritos al instante:<br><br>" +
-                             "• <strong>Free Fire Diamantes</strong> - 20% de descuento<br>" +
-                             "• <strong>Roblox Robux</strong> - Paquetes desde $4.99<br>" +
-                             "• <strong>Fortnite V-Bucks</strong> - Ofertas exclusivas<br>" +
-                             "• <strong>Steam Wallet</strong> - Recarga directa<br><br>" +
-                             "Entrega inmediata por correo electrónico",
-                    buttonText: "Recargar Juego"
-                },
                 recargas: {
                     title: "RECARGAS DIGITALES",
                     icon: '<i class="fas fa-money-bill-wave"></i>',
@@ -525,17 +684,6 @@
                              "• <strong>Pagos internacionales</strong> - Western Union, MoneyGram<br><br>" +
                              "Transacciones seguras y rápidas",
                     buttonText: "Hacer Recarga"
-                },
-                aplicaciones: {
-                    title: "APLICACIONES PREMIUM",
-                    icon: '<i class="fas fa-mobile-alt"></i>',
-                    content: "Acceso a aplicaciones premium:<br><br>" +
-                             "• <strong>Canva Pro</strong> - $3.99/mes (oficial $12.99)<br>" +
-                             "• <strong>CapCut Pro</strong> - Acceso ilimitado<br>" +
-                             "• <strong>Spotify Premium</strong> - Sin anuncios<br>" +
-                             "• <strong>YouTube Premium</strong> - $2.99/mes<br><br>" +
-                             "Cuentas personales y familiares",
-                    buttonText: "Obtener Ahora"
                 }
             };
             
@@ -577,6 +725,21 @@
             
             // Mostrar modal
             function showModal(target) {
+                if (target === 'streaming') {
+                    showIframeModal(streamingModal, streamingIframe);
+                    return;
+                }
+                
+                if (target === 'juegos') {
+                    showIframeModal(juegosModal, juegosIframe);
+                    return;
+                }
+                
+                if (target === 'aplicaciones') {
+                    showIframeModal(aplicacionesModal, aplicacionesIframe);
+                    return;
+                }
+                
                 const data = modalData[target];
                 modalTitle.textContent = data.title;
                 modalIcon.innerHTML = data.icon;
@@ -587,9 +750,32 @@
                 document.body.style.overflow = 'hidden';
             }
             
+            // Mostrar modal de iframe (streaming, juegos o aplicaciones)
+            function showIframeModal(modalElement, iframeElement) {
+                // Ocultar el contenido principal
+                mainContent.style.display = 'none';
+                
+                // Mostrar el modal
+                modalElement.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Recargar el iframe para asegurar que se muestra el contenido actualizado
+                iframeElement.src = iframeElement.src;
+            }
+            
             // Ocultar modal
             function hideModal() {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Ocultar modal de iframe y mostrar contenido principal
+            function hideIframeModal(modalElement) {
+                // Mostrar el contenido principal nuevamente
+                mainContent.style.display = 'block';
+                
+                // Ocultar el modal
+                modalElement.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
             
@@ -638,12 +824,42 @@
                 });
             });
             
-            // Cerrar modal
+            // Cerrar modales
             modalClose.addEventListener('click', hideModal);
             modalBtn.addEventListener('click', hideModal);
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     hideModal();
+                }
+            });
+            
+            streamingClose.addEventListener('click', function() {
+                hideIframeModal(streamingModal);
+            });
+            
+            juegosClose.addEventListener('click', function() {
+                hideIframeModal(juegosModal);
+            });
+            
+            aplicacionesClose.addEventListener('click', function() {
+                hideIframeModal(aplicacionesModal);
+            });
+            
+            streamingModal.addEventListener('click', function(e) {
+                if (e.target === streamingModal) {
+                    hideIframeModal(streamingModal);
+                }
+            });
+            
+            juegosModal.addEventListener('click', function(e) {
+                if (e.target === juegosModal) {
+                    hideIframeModal(juegosModal);
+                }
+            });
+            
+            aplicacionesModal.addEventListener('click', function(e) {
+                if (e.target === aplicacionesModal) {
+                    hideIframeModal(aplicacionesModal);
                 }
             });
             
@@ -665,6 +881,48 @@
             banner.addEventListener('mouseleave', startAutoRotation);
             banner.addEventListener('touchstart', stopAutoRotation);
             banner.addEventListener('touchend', startAutoRotation);
+            
+            // Manejo de instalación PWA
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Previene que el mini-infobar aparezca en mobile
+                e.preventDefault();
+                // Guarda el evento para que pueda ser activado luego
+                deferredPrompt = e;
+                // Muestra el banner de instalación
+                installBanner.style.display = 'flex';
+            });
+            
+            installButton.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    // Muestra el prompt de instalación
+                    deferredPrompt.prompt();
+                    // Espera a que el usuario responda al prompt
+                    const { outcome } = await deferredPrompt.userChoice;
+                    // Opcionalmente, envía analytics del resultado
+                    console.log(`User response to the install prompt: ${outcome}`);
+                    // Ya no necesitamos el prompt, lo limpiamos
+                    deferredPrompt = null;
+                    // Oculta el banner
+                    installBanner.style.display = 'none';
+                }
+            });
+            
+            installClose.addEventListener('click', () => {
+                installBanner.style.display = 'none';
+            });
+            
+            window.addEventListener('appinstalled', () => {
+                // Oculta el banner de instalación
+                installBanner.style.display = 'none';
+                // Limpia el deferredPrompt
+                deferredPrompt = null;
+                console.log('PWA was installed');
+            });
+            
+            // Verifica si la app ya está instalada
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                installBanner.style.display = 'none';
+            }
         });
     </script>
 </body>
