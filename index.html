@@ -163,6 +163,14 @@
         }
 
         /* Banner de publicidad */
+        .ad-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            margin: 10px 0;
+        }
+
         .ad-banner {
             width: 100%;
             background: linear-gradient(to right, #ffffff, #1D976C);
@@ -172,7 +180,6 @@
             text-align: center;
             font-weight: bold;
             font-size: 16px;
-            margin: 10px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             position: relative;
@@ -195,6 +202,33 @@
 
         .ad-message.active {
             opacity: 1;
+        }
+
+        .emprender-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #8E54E9, #4776E6);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .emprender-btn i {
+            font-size: 18px;
+        }
+
+        .emprender-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         /* Botones fijos en GRID de 2 columnas */
@@ -475,6 +509,11 @@
                 height: 45px;
             }
             
+            .emprender-btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+            
             .fixed-btn {
                 padding: 16px 0;
                 font-size: 16px;
@@ -543,20 +582,27 @@
             </div>
         </div>
 
-        <!-- Banner de publicidad -->
-        <div class="ad-banner">
-            <div class="ad-message active">
-                🎬 CUENTAS PREMIUM: Netflix, Disney+, HBO Max
+        <!-- Banner de publicidad y botón de emprendimiento -->
+        <div class="ad-container">
+            <div class="ad-banner">
+                <div class="ad-message active">
+                    🎬 CUENTAS PREMIUM: Netflix, Disney+, HBO Max
+                </div>
+                <div class="ad-message">
+                    🎮 DIAMANTES Free Fire - ROBUX Roblox - V-Bucks Fortnite
+                </div>
+                <div class="ad-message">
+                    📱 APPS: Canva Pro, Spotify Premium, YouTube Premium
+                </div>
+                <div class="ad-message">
+                    ⚡ RECARGAS AL INSTANTE - GARANTÍA 100%
+                </div>
             </div>
-            <div class="ad-message">
-                🎮 DIAMANTES Free Fire - ROBUX Roblox - V-Bucks Fortnite
-            </div>
-            <div class="ad-message">
-                📱 APPS: Canva Pro, Spotify Premium, YouTube Premium
-            </div>
-            <div class="ad-message">
-                ⚡ RECARGAS AL INSTANTE - GARANTÍA 100%
-            </div>
+            
+            <button class="emprender-btn" id="emprenderBtn">
+                <i class="fas fa-rocket"></i>
+                ¿CÓMO EMPRENDER CON ESTOS SERVICIOS?
+            </button>
         </div>
 
         <!-- Botones fijos en GRID de 2 columnas -->
@@ -638,6 +684,7 @@
             
             // Elementos del banner de publicidad
             const adMessages = document.querySelectorAll('.ad-message');
+            const emprenderBtn = document.getElementById('emprenderBtn');
             
             // Botones fijos
             const fixedButtons = document.querySelectorAll('.fixed-btn');
@@ -684,6 +731,20 @@
                              "• <strong>Pagos internacionales</strong> - Western Union, MoneyGram<br><br>" +
                              "Transacciones seguras y rápidas",
                     buttonText: "Hacer Recarga"
+                },
+                emprender: {
+                    title: "CÓMO EMPRENDER",
+                    icon: '<i class="fas fa-rocket"></i>',
+                    content: "¡Convierte estos servicios en tu negocio!<br><br>" +
+                             "• <strong>Plan Básico</strong>: Revende nuestros productos con 20% de ganancia<br>" +
+                             "• <strong>Plan Premium</strong>: Acceso a panel de revendedor con 30% de ganancia<br>" +
+                             "• <strong>Plan Empresarial</strong>: Licencia para vender con tu propia marca<br><br>" +
+                             "Beneficios:<br>" +
+                             "✅ Soporte 24/7<br>" +
+                             "✅ Material promocional<br>" +
+                             "✅ Capacitación incluida<br>" +
+                             "✅ Sin inversión inicial",
+                    buttonText: "Quiero Emprender"
                 }
             };
             
@@ -741,13 +802,15 @@
                 }
                 
                 const data = modalData[target];
-                modalTitle.textContent = data.title;
-                modalIcon.innerHTML = data.icon;
-                modalBody.innerHTML = data.content;
-                modalBtn.textContent = data.buttonText;
-                
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                if (data) {
+                    modalTitle.textContent = data.title;
+                    modalIcon.innerHTML = data.icon;
+                    modalBody.innerHTML = data.content;
+                    modalBtn.textContent = data.buttonText;
+                    
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
             }
             
             // Mostrar modal de iframe (streaming, juegos o aplicaciones)
@@ -822,6 +885,16 @@
                     
                     showModal(target);
                 });
+            });
+            
+            // Event listener para el botón de emprendimiento
+            emprenderBtn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                showModal('emprender');
             });
             
             // Cerrar modales
