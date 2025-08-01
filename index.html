@@ -29,6 +29,66 @@
             padding: 15px;
         }
 
+        /* Pantalla de bienvenida después de instalar */
+        .welcome-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .welcome-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .welcome-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .welcome-message {
+            font-size: 16px;
+            margin-bottom: 25px;
+            max-width: 400px;
+            line-height: 1.5;
+        }
+
+        .welcome-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+        }
+
+        .welcome-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
         .logo-container {
             position: relative;
             text-align: center;
@@ -351,6 +411,8 @@
         .modal-footer {
             display: flex;
             justify-content: center;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .modal-btn {
@@ -366,9 +428,146 @@
             font-size: 15px;
         }
 
+        .register-btn {
+            background: linear-gradient(45deg, #1D976C, #93F9B9);
+        }
+
         .modal-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilo específico para el modal de recargas */
+        .recargas-content {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .recargas-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #FFC837;
+        }
+
+        .recargas-subtitle {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .recargas-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        .recargas-table th, .recargas-table td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .recargas-table th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .recargas-method {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .method-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FFC837;
+        }
+
+        .method-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .method-step {
+            flex: 1;
+            padding: 5px;
+        }
+
+        .method-step span {
+            display: block;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .create-user-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .create-user-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal de videos */
+        .video-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .video-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .video-btn i {
+            font-size: 24px;
+        }
+
+        .video-btn:nth-child(1) {
+            background: linear-gradient(45deg, #FF416C, #FF4B2B);
+        }
+
+        .video-btn:nth-child(2) {
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+        }
+
+        .video-btn:nth-child(3) {
+            background: linear-gradient(45deg, #1D976C, #93F9B9);
+        }
+
+        .video-btn:nth-child(4) {
+            background: linear-gradient(45deg, #FF8008, #FFC837);
+        }
+
+        .video-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         /* Ventana emergente para iframes */
@@ -415,6 +614,55 @@
             border: none;
             border-radius: 8px;
             background: white;
+        }
+
+        /* Ventana emergente para videos de YouTube */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1002;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 40px 15px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1003;
+            transition: transform 0.3s;
+        }
+
+        .video-close:hover {
+            transform: rotate(90deg);
+            color: #FF416C;
+        }
+
+        .video-iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 60%;
+            border: none;
+            border-radius: 8px;
         }
 
         /* Banner de instalación de app */
@@ -491,6 +739,19 @@
 
         /* Ajustes adicionales para móviles pequeños */
         @media (max-width: 400px) {
+            .welcome-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .welcome-title {
+                font-size: 24px;
+            }
+            
+            .welcome-message {
+                font-size: 14px;
+            }
+            
             .banner-btn {
                 font-size: 18px;
                 padding: 20px 0;
@@ -531,15 +792,39 @@
                 font-size: 20px;
             }
             
+            .video-buttons {
+                grid-template-columns: 1fr;
+            }
+            
             .iframe-close {
                 font-size: 24px;
                 right: 10px;
+            }
+            
+            .video-iframe {
+                height: 40%;
+            }
+            
+            .method-steps {
+                flex-direction: column;
+            }
+            
+            .method-step {
+                margin-bottom: 10px;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Pantalla de bienvenida después de instalar -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <img src="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg" alt="Bienvenido" class="welcome-image">
+        <h1 class="welcome-title">¡Bienvenido!</h1>
+        <p class="welcome-message">Gracias por instalar nuestra aplicación. Ahora tienes acceso rápido a todos nuestros servicios digitales premium desde tu pantalla de inicio.</p>
+        <button class="welcome-btn" id="welcomeBtn">Comenzar</button>
+    </div>
+
     <!-- Banner de instalación de app -->
     <div class="install-banner" id="installBanner">
         <img src="https://i.pinimg.com/736x/ff/ba/22/ffba22aac24ab14dcf87745505510936.jpg" alt="App Icon">
@@ -626,6 +911,60 @@
         </div>
     </div>
 
+    <!-- Ventana Emergente de Recargas -->
+    <div class="modal" id="recargas-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">RECARGAS DIGITALES</div>
+                <button class="modal-close" id="recargas-close">&times;</button>
+            </div>
+            <div class="modal-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="modal-body">
+                <div class="recargas-content">
+                    <p class="recargas-subtitle">Crea tu usuario en <strong>WWW.VENDEYGANA.NET</strong> para acceder a nuestros servicios de recarga.</p>
+                    
+                    <h3 class="recargas-title">Recargamos para:</h3>
+                    
+                    <table class="recargas-table">
+                        <tr>
+                            <th>MOVILNET</th>
+                            <th>MOVISTAR</th>
+                            <th>DIGITEL</th>
+                            <th>SIMPLE</th>
+                        </tr>
+                        <tr>
+                            <td>INTER</td>
+                            <td>CANTV</td>
+                            <td>NETUNO</td>
+                            <td>DIRECTV</td>
+                        </tr>
+                    </table>
+                    
+                    <h4 class="recargas-title">COLOMBIA</h4>
+                    
+                    <div class="recargas-method">
+                        <div class="method-title">Nuestro Método AREPA</div>
+                        <div class="method-steps">
+                            <div class="method-step">
+                                <span>A</span>filia
+                            </div>
+                            <div class="method-step">
+                                <span>R</span>ecarga
+                            </div>
+                            <div class="method-step">
+                                <span>P</span>aga
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="create-user-btn" id="createUserBtn">
+                        CREAR USUARIO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Ventana Emergente -->
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -639,7 +978,54 @@
             </div>
             <div class="modal-footer">
                 <button class="modal-btn" id="modal-btn">Aceptar</button>
+                <button class="modal-btn register-btn" id="register-btn" style="display: none;">
+                    <i class="fas fa-user-plus"></i> CREAR USUARIO
+                </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Ventana emergente de videos -->
+    <div class="modal" id="emprender-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">VIDEOS TUTORIALES</div>
+                <button class="modal-close" id="emprender-close">&times;</button>
+            </div>
+            <div class="modal-icon"><i class="fas fa-video"></i></div>
+            <div class="modal-body">
+                <p>Selecciona un video tutorial para aprender cómo emprender con nuestros servicios:</p>
+                
+                <div class="video-buttons">
+                    <button class="video-btn" id="video1-btn">
+                        <i class="fas fa-play"></i>
+                        Tutorial Básico
+                    </button>
+                    <button class="video-btn" id="video2-btn">
+                        <i class="fas fa-chart-line"></i>
+                        Estrategias de Venta
+                    </button>
+                    <button class="video-btn" id="video3-btn">
+                        <i class="fas fa-users"></i>
+                        Marketing Digital
+                    </button>
+                    <button class="video-btn" id="video4-btn">
+                        <i class="fas fa-trophy"></i>
+                        Casos de Éxito
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="emprender-modal-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana emergente para videos de YouTube -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-content">
+            <button class="video-close" id="video-close">&times;</button>
+            <iframe class="video-iframe" id="youtube-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -669,6 +1055,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Elementos de la pantalla de bienvenida
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const welcomeBtn = document.getElementById('welcomeBtn');
+            
             // Elementos del banner principal
             const banner = document.querySelector('.banner');
             const buttons = document.querySelectorAll('.banner-btn');
@@ -681,6 +1071,28 @@
             const modalBody = document.getElementById('modal-body');
             const modalClose = document.getElementById('modal-close');
             const modalBtn = document.getElementById('modal-btn');
+            const registerBtn = document.getElementById('register-btn');
+            
+            // Elementos del modal de recargas
+            const recargasModal = document.getElementById('recargas-modal');
+            const recargasClose = document.getElementById('recargas-close');
+            const createUserBtn = document.getElementById('createUserBtn');
+            
+            // Elementos del modal de emprendimiento
+            const emprenderModal = document.getElementById('emprender-modal');
+            const emprenderClose = document.getElementById('emprender-close');
+            const emprenderModalBtn = document.getElementById('emprender-modal-btn');
+            
+            // Elementos del modal de videos
+            const videoModal = document.getElementById('video-modal');
+            const videoClose = document.getElementById('video-close');
+            const youtubeIframe = document.getElementById('youtube-iframe');
+            
+            // Botones de videos
+            const video1Btn = document.getElementById('video1-btn');
+            const video2Btn = document.getElementById('video2-btn');
+            const video3Btn = document.getElementById('video3-btn');
+            const video4Btn = document.getElementById('video4-btn');
             
             // Elementos del banner de publicidad
             const adMessages = document.querySelectorAll('.ad-message');
@@ -719,18 +1131,41 @@
             let currentAdIndex = 0;
             let adIntervalId;
             
+            // URLs de videos de YouTube
+            const videoUrls = {
+                video1: "https://www.youtube.com/embed/AidYYbYBsV0",  // Tutorial Básico
+                video2: "https://www.youtube.com/embed/dQw4w9WgXcQ",  // Estrategias de Venta
+                video3: "https://www.youtube.com/embed/dQw4w9WgXcQ",  // Marketing Digital
+                video4: "https://www.youtube.com/embed/dQw4w9WgXcQ"   // Casos de Éxito
+            };
+            
             // Datos para cada modal
             const modalData = {
                 recargas: {
                     title: "RECARGAS DIGITALES",
                     icon: '<i class="fas fa-money-bill-wave"></i>',
-                    content: "Servicios de recarga disponibles:<br><br>" +
-                             "• <strong>Recarga móvil</strong> - Todas las compañías<br>" +
-                             "• <strong>Tarjetas de regalo</strong> - Amazon, Google Play, iTunes<br>" +
-                             "• <strong>Criptomonedas</strong> - Compra/venta de Bitcoin<br>" +
-                             "• <strong>Pagos internacionales</strong> - Western Union, MoneyGram<br><br>" +
-                             "Transacciones seguras y rápidas",
-                    buttonText: "Hacer Recarga"
+                    content: `
+                        <p>Crea tu usuario en <strong>WWW.VENDEYGANA.NET</strong> para acceder a nuestros servicios de recarga.</p>
+                        
+                        <div class="arepa-method">
+                            <div class="arepa-title">Nuestro Método AREPA</div>
+                            <div class="arepa-steps">
+                                <div class="arepa-step">
+                                    <span>A</span>filia
+                                </div>
+                                <div class="arepa-step">
+                                    <span>R</span>ecarga
+                                </div>
+                                <div class="arepa-step">
+                                    <span>P</span>aga
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p>Con nuestro sistema podrás realizar recargas de forma rápida, segura y con las mejores tarifas del mercado.</p>
+                    `,
+                    buttonText: "Entendido",
+                    showRegister: true
                 },
                 emprender: {
                     title: "CÓMO EMPRENDER",
@@ -744,9 +1179,32 @@
                              "✅ Material promocional<br>" +
                              "✅ Capacitación incluida<br>" +
                              "✅ Sin inversión inicial",
-                    buttonText: "Quiero Emprender"
+                    buttonText: "Quiero Emprender",
+                    showRegister: false
                 }
             };
+            
+            // Mostrar pantalla de bienvenida si es la primera vez después de instalar
+            function checkFirstRun() {
+                const firstRun = localStorage.getItem('firstRun') === null;
+                
+                if (firstRun && window.matchMedia('(display-mode: standalone)').matches) {
+                    welcomeScreen.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    localStorage.setItem('firstRun', 'false');
+                }
+            }
+            
+            // Ocultar pantalla de bienvenida
+            function hideWelcomeScreen() {
+                welcomeScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Redirigir a la página de registro
+            function redirectToRegister() {
+                window.open('https://www.vendeygana.net', '_blank');
+            }
             
             // Rotación del banner principal
             function rotateBanner() {
@@ -801,6 +1259,16 @@
                     return;
                 }
                 
+                if (target === 'emprender') {
+                    showEmprenderModal();
+                    return;
+                }
+                
+                if (target === 'recargas') {
+                    showRecargasModal();
+                    return;
+                }
+                
                 const data = modalData[target];
                 if (data) {
                     modalTitle.textContent = data.title;
@@ -808,9 +1276,54 @@
                     modalBody.innerHTML = data.content;
                     modalBtn.textContent = data.buttonText;
                     
+                    // Mostrar u ocultar botón de registro según corresponda
+                    if (data.showRegister) {
+                        registerBtn.style.display = 'flex';
+                    } else {
+                        registerBtn.style.display = 'none';
+                    }
+                    
                     modal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
                 }
+            }
+            
+            // Mostrar modal de recargas
+            function showRecargasModal() {
+                recargasModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Ocultar modal de recargas
+            function hideRecargasModal() {
+                recargasModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Mostrar modal de emprendimiento
+            function showEmprenderModal() {
+                emprenderModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Ocultar modal de emprendimiento
+            function hideEmprenderModal() {
+                emprenderModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Mostrar video de YouTube
+            function showVideo(videoId) {
+                youtubeIframe.src = videoUrls[videoId] + "?autoplay=1";
+                videoModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Ocultar video de YouTube
+            function hideVideo() {
+                youtubeIframe.src = "";
+                videoModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
             
             // Mostrar modal de iframe (streaming, juegos o aplicaciones)
@@ -841,6 +1354,15 @@
                 modalElement.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
+            
+            // Event listener para el botón de bienvenida
+            welcomeBtn.addEventListener('click', hideWelcomeScreen);
+            
+            // Event listener para el botón de registro
+            registerBtn.addEventListener('click', redirectToRegister);
+            
+            // Event listener para el botón de crear usuario en el modal de recargas
+            createUserBtn.addEventListener('click', redirectToRegister);
             
             // Event listeners para los indicadores
             indicators.forEach(indicator => {
@@ -897,12 +1419,51 @@
                 showModal('emprender');
             });
             
+            // Event listeners para los botones de video
+            video1Btn.addEventListener('click', function() {
+                showVideo('video1');
+            });
+            
+            video2Btn.addEventListener('click', function() {
+                showVideo('video2');
+            });
+            
+            video3Btn.addEventListener('click', function() {
+                showVideo('video3');
+            });
+            
+            video4Btn.addEventListener('click', function() {
+                showVideo('video4');
+            });
+            
             // Cerrar modales
             modalClose.addEventListener('click', hideModal);
             modalBtn.addEventListener('click', hideModal);
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     hideModal();
+                }
+            });
+            
+            recargasClose.addEventListener('click', hideRecargasModal);
+            recargasModal.addEventListener('click', function(e) {
+                if (e.target === recargasModal) {
+                    hideRecargasModal();
+                }
+            });
+            
+            emprenderClose.addEventListener('click', hideEmprenderModal);
+            emprenderModalBtn.addEventListener('click', hideEmprenderModal);
+            emprenderModal.addEventListener('click', function(e) {
+                if (e.target === emprenderModal) {
+                    hideEmprenderModal();
+                }
+            });
+            
+            videoClose.addEventListener('click', hideVideo);
+            videoModal.addEventListener('click', function(e) {
+                if (e.target === videoModal) {
+                    hideVideo();
                 }
             });
             
@@ -990,12 +1551,15 @@
                 // Limpia el deferredPrompt
                 deferredPrompt = null;
                 console.log('PWA was installed');
+                // Muestra la pantalla de bienvenida
+                welcomeScreen.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                // Marca que es la primera ejecución
+                localStorage.setItem('firstRun', 'false');
             });
             
-            // Verifica si la app ya está instalada
-            if (window.matchMedia('(display-mode: standalone)').matches) {
-                installBanner.style.display = 'none';
-            }
+            // Verifica si es la primera ejecución después de instalar
+            checkFirstRun();
         });
     </script>
 </body>
