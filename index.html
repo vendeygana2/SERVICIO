@@ -737,8 +737,9 @@
             animation: pulse 1s;
         }
 
-        /* Ajustes adicionales para móviles pequeños */
-        @media (max-width: 400px) {
+        /* Ajustes para móviles pequeños */
+        @media (max-width: 600px) {
+            /* Ajustes generales */
             .welcome-image {
                 width: 150px;
                 height: 150px;
@@ -805,12 +806,68 @@
                 height: 40%;
             }
             
+            /* Ajustes específicos para el modal de recargas */
+            #recargas-modal .modal-content {
+                width: 95%;
+                max-width: 100%;
+                padding: 15px;
+                margin: 10px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            
+            #recargas-modal .modal-body {
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .recargas-content {
+                padding: 10px;
+            }
+            
+            .recargas-title {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .recargas-subtitle {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            
+            .recargas-table {
+                font-size: 12px;
+            }
+            
+            .recargas-table th, 
+            .recargas-table td {
+                padding: 6px;
+            }
+            
+            .recargas-method {
+                padding: 10px;
+                margin: 15px 0;
+            }
+            
+            .method-title {
+                font-size: 16px;
+            }
+            
             .method-steps {
                 flex-direction: column;
             }
             
             .method-step {
                 margin-bottom: 10px;
+            }
+            
+            .method-step span {
+                font-size: 16px;
+            }
+            
+            .create-user-btn {
+                padding: 10px;
+                font-size: 14px;
             }
         }
     </style>
@@ -1292,6 +1349,12 @@
             function showRecargasModal() {
                 recargasModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
+                
+                // Enfocar el modal en móviles
+                if (window.innerWidth <= 600) {
+                    const modalContent = recargasModal.querySelector('.modal-content');
+                    modalContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
             }
             
             // Ocultar modal de recargas
