@@ -726,6 +726,112 @@
             margin-left: 10px;
         }
 
+        /* Botón flotante de WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 1.5s infinite;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Mensaje de chat de WhatsApp */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .whatsapp-chat.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: #075E54;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+
+        .chat-title i {
+            font-size: 20px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .chat-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .chat-option {
+            display: block;
+            padding: 10px 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            color: #075E54;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .chat-option:hover {
+            background: #e0e0e0;
+        }
+
+        .chat-option i {
+            margin-right: 8px;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -739,6 +845,18 @@
             0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
 
         @keyframes slideUp {
@@ -881,6 +999,21 @@
             .create-user-btn {
                 padding: 10px;
                 font-size: 14px;
+            }
+            
+            /* Ajustes para el botón de WhatsApp */
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-chat {
+                width: 90%;
+                right: 5%;
+                bottom: 80px;
             }
         }
     </style>
@@ -1123,6 +1256,38 @@
         </div>
     </div>
 
+    <!-- Botón flotante de WhatsApp -->
+    <div class="whatsapp-btn" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Mensaje de chat de WhatsApp -->
+    <div class="whatsapp-chat" id="whatsappChat">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fab fa-whatsapp"></i>
+                <span>Servicio al Cliente</span>
+            </div>
+            <button class="chat-close" id="chatClose">&times;</button>
+        </div>
+        <div class="chat-body">
+            <p>BIENVENIDO A TU PLATAFORMA DE PANAXTREAMING/VENDEYGANA</p>
+            <p>¿En qué podemos ayudarte hoy?</p>
+            
+            <div class="chat-options">
+                <a href="https://wa.me/584247010826" class="chat-option" target="_blank">
+                    <i class="fas fa-headset"></i> VENTAS Y ATENCIÓN
+                </a>
+                <a href="https://wa.me/584247412616" class="chat-option" target="_blank">
+                    <i class="fas fa-tools"></i> SOPORTE TÉCNICO
+                </a>
+                <a href="https://wa.me/584147397648" class="chat-option" target="_blank">
+                    <i class="fas fa-money-bill-wave"></i> GESTIÓN BANCARIA
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Elementos de la pantalla de bienvenida
@@ -1194,6 +1359,11 @@
             const installButton = document.getElementById('installButton');
             const installClose = document.getElementById('installClose');
             let deferredPrompt;
+            
+            // Elementos del chat de WhatsApp
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            const whatsappChat = document.getElementById('whatsappChat');
+            const chatClose = document.getElementById('chatClose');
             
             let currentIndex = 0;
             let intervalId;
@@ -1431,6 +1601,11 @@
                 document.body.style.overflow = 'auto';
             }
             
+            // Mostrar/ocultar chat de WhatsApp
+            function toggleWhatsappChat() {
+                whatsappChat.classList.toggle('active');
+            }
+            
             // Event listener para el botón de bienvenida
             welcomeBtn.addEventListener('click', hideWelcomeScreen);
             
@@ -1510,6 +1685,17 @@
             
             video4Btn.addEventListener('click', function() {
                 showVideo('video4');
+            });
+            
+            // Event listeners para el chat de WhatsApp
+            whatsappBtn.addEventListener('click', toggleWhatsappChat);
+            chatClose.addEventListener('click', toggleWhatsappChat);
+            
+            // Cerrar chat al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!whatsappBtn.contains(e.target) && !whatsappChat.contains(e.target)) {
+                    whatsappChat.classList.remove('active');
+                }
             });
             
             // Cerrar modales
