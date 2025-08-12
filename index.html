@@ -140,12 +140,12 @@
 
         .banner {
             display: flex;
-            width: 400%;
+            width: 600%;
             transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .banner-btn {
-            width: 25%;
+            width: 16.666%;
             padding: 25px 0;
             border: none;
             font-size: 20px;
@@ -202,6 +202,14 @@
 
         .banner-btn:nth-child(4) {
             background: linear-gradient(45deg, #FF8008, #FFC837);
+        }
+
+        .banner-btn:nth-child(5) {
+            background: linear-gradient(45deg, #1E9600, #A8E063);
+        }
+
+        .banner-btn:nth-child(6) {
+            background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045);
         }
 
         .banner-btn:hover {
@@ -351,6 +359,14 @@
             background: linear-gradient(45deg, #FF8008, #FFC837);
         }
 
+        .fixed-btn:nth-child(5) {
+            background: linear-gradient(45deg, #1E9600, #A8E063);
+        }
+
+        .fixed-btn:nth-child(6) {
+            background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045);
+        }
+
         .fixed-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
@@ -460,7 +476,7 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 15px;
-            color: #FFC837;
+            color: #FFC837);
         }
 
         .recargas-subtitle {
@@ -494,7 +510,7 @@
         .method-title {
             font-weight: bold;
             margin-bottom: 10px;
-            color: #FFC837;
+            color: #FFC837);
         }
 
         .method-steps {
@@ -618,7 +634,7 @@
 
         .iframe-close:hover {
             transform: rotate(90deg);
-            color: #FF416C;
+            color: #FF416C);
         }
 
         .iframe-view {
@@ -667,7 +683,7 @@
 
         .video-close:hover {
             transform: rotate(90deg);
-            color: #FF416C;
+            color: #FF416C);
         }
 
         .video-iframe {
@@ -1060,6 +1076,14 @@
                     <i class="fas fa-mobile-alt"></i>
                     APLICACIONES
                 </button>
+                <button class="banner-btn" data-target="musica" id="banner-musica-btn">
+                    <i class="fas fa-music"></i>
+                    MÚSICA
+                </button>
+                <button class="banner-btn" data-target="redes" id="banner-redes-btn">
+                    <i class="fas fa-hashtag"></i>
+                    REDES SOCIALES
+                </button>
             </div>
             
             <div class="indicators">
@@ -1067,6 +1091,8 @@
                 <span class="indicator" data-slide="1"></span>
                 <span class="indicator" data-slide="2"></span>
                 <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
             </div>
         </div>
 
@@ -1084,6 +1110,12 @@
                 </div>
                 <div class="ad-message">
                     ⚡ RECARGAS AL INSTANTE - GARANTÍA 100%
+                </div>
+                <div class="ad-message">
+                    🎵 MÚSICA: Spotify Premium, Deezer, Apple Music
+                </div>
+                <div class="ad-message">
+                    📱 REDES: Instagram, Facebook, Twitter, TikTok
                 </div>
             </div>
             
@@ -1110,6 +1142,14 @@
             <button class="fixed-btn" data-target="aplicaciones" id="fixed-aplicaciones-btn">
                 <i class="fas fa-mobile-alt"></i>
                 APLICACIONES
+            </button>
+            <button class="fixed-btn" data-target="musica" id="fixed-musica-btn">
+                <i class="fas fa-music"></i>
+                MÚSICA
+            </button>
+            <button class="fixed-btn" data-target="redes" id="fixed-redes-btn">
+                <i class="fas fa-hashtag"></i>
+                REDES SOCIALES
             </button>
         </div>
     </div>
@@ -1256,6 +1296,22 @@
         </div>
     </div>
 
+    <!-- Ventana emergente de música -->
+    <div class="iframe-modal" id="musica-modal">
+        <div class="iframe-content">
+            <button class="iframe-close" id="musica-close">&times;</button>
+            <iframe src="https://vendeygana2.github.io/SPOTI/" class="iframe-view" id="musica-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- Ventana emergente de redes sociales -->
+    <div class="iframe-modal" id="redes-modal">
+        <div class="iframe-content">
+            <button class="iframe-close" id="redes-close">&times;</button>
+            <iframe src="https://vendeygana2.github.io/REDESSOCIALES/" class="iframe-view" id="redes-iframe"></iframe>
+        </div>
+    </div>
+
     <!-- Botón flotante de WhatsApp -->
     <div class="whatsapp-btn" id="whatsappBtn">
         <i class="fab fa-whatsapp"></i>
@@ -1350,6 +1406,16 @@
             const aplicacionesModal = document.getElementById('aplicaciones-modal');
             const aplicacionesClose = document.getElementById('aplicaciones-close');
             const aplicacionesIframe = document.getElementById('aplicaciones-iframe');
+            
+            // Elementos del modal de música
+            const musicaModal = document.getElementById('musica-modal');
+            const musicaClose = document.getElementById('musica-close');
+            const musicaIframe = document.getElementById('musica-iframe');
+            
+            // Elementos del modal de redes sociales
+            const redesModal = document.getElementById('redes-modal');
+            const redesClose = document.getElementById('redes-close');
+            const redesIframe = document.getElementById('redes-iframe');
             
             // Contenido principal
             const mainContent = document.getElementById('main-content');
@@ -1463,7 +1529,7 @@
             }
             
             function updateBanner() {
-                const offset = -currentIndex * 25;
+                const offset = -currentIndex * 16.666;
                 banner.style.transform = `translateX(${offset}%)`;
                 
                 buttons.forEach((btn, index) => {
@@ -1496,6 +1562,16 @@
                 
                 if (target === 'aplicaciones') {
                     showIframeModal(aplicacionesModal, aplicacionesIframe);
+                    return;
+                }
+                
+                if (target === 'musica') {
+                    showIframeModal(musicaModal, musicaIframe);
+                    return;
+                }
+                
+                if (target === 'redes') {
+                    showIframeModal(redesModal, redesIframe);
                     return;
                 }
                 
@@ -1741,6 +1817,14 @@
                 hideIframeModal(aplicacionesModal);
             });
             
+            musicaClose.addEventListener('click', function() {
+                hideIframeModal(musicaModal);
+            });
+            
+            redesClose.addEventListener('click', function() {
+                hideIframeModal(redesModal);
+            });
+            
             streamingModal.addEventListener('click', function(e) {
                 if (e.target === streamingModal) {
                     hideIframeModal(streamingModal);
@@ -1756,6 +1840,18 @@
             aplicacionesModal.addEventListener('click', function(e) {
                 if (e.target === aplicacionesModal) {
                     hideIframeModal(aplicacionesModal);
+                }
+            });
+            
+            musicaModal.addEventListener('click', function(e) {
+                if (e.target === musicaModal) {
+                    hideIframeModal(musicaModal);
+                }
+            });
+            
+            redesModal.addEventListener('click', function(e) {
+                if (e.target === redesModal) {
+                    hideIframeModal(redesModal);
                 }
             });
             
