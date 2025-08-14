@@ -312,6 +312,35 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
+        /* Botón de descarga de app */
+        .descarga-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #1D976C, #93F9B9);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .descarga-btn i {
+            font-size: 18px;
+        }
+
+        .descarga-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
         /* Botones fijos en GRID de 2 columnas */
         .fixed-buttons {
             display: grid;
@@ -918,7 +947,7 @@
                 height: 45px;
             }
             
-            .emprender-btn {
+            .emprender-btn, .descarga-btn {
                 font-size: 14px;
                 padding: 10px;
             }
@@ -1057,6 +1086,12 @@
         <h2>Servicios Digitales Premium</h2>
     </div>
 
+    <!-- Botón de descarga de app -->
+    <button class="descarga-btn" id="descargaBtn">
+        <i class="fas fa-download"></i>
+        MIRA COMO DESCARGAR NUESTRA APP EN TU TELÉFONO
+    </button>
+
     <div class="main-container" id="main-content">
         <div class="banner-container">
             <div class="banner">
@@ -1100,7 +1135,7 @@
         <div class="ad-container">
             <div class="ad-banner">
                 <div class="ad-message active">
-                    🎬 CUENTAS PREMIUM: Netflix, Disney+, HBO Max
+                    � CUENTAS PREMIUM: Netflix, Disney+, HBO Max
                 </div>
                 <div class="ad-message">
                     🎮 DIAMANTES Free Fire - ROBUX Roblox - V-Bucks Fortnite
@@ -1431,6 +1466,9 @@
             const whatsappChat = document.getElementById('whatsappChat');
             const chatClose = document.getElementById('chatClose');
             
+            // Botón de descarga de app
+            const descargaBtn = document.getElementById('descargaBtn');
+            
             let currentIndex = 0;
             let intervalId;
             let isAnimating = false;
@@ -1442,7 +1480,8 @@
                 video1: "https://www.youtube.com/embed/AidYYbYBsV0",  // Tutorial Básico
                 video2: "https://www.youtube.com/embed/X2UA8uSl_Pw?start=262",  // Estrategias de Venta (con tiempo inicial)
                 video3: "https://www.youtube.com/embed/dQw4w9WgXcQ",  // Marketing Digital
-                video4: "https://www.youtube.com/embed/dQw4w9WgXcQ"   // Casos de Éxito
+                video4: "https://www.youtube.com/embed/dQw4w9WgXcQ",   // Casos de Éxito
+                descarga: "https://www.youtube.com/embed/grB8h67z33k?si=Xrc4NTOS2GCFeXf8"  // Video de descarga de app
             };
             
             // Datos para cada modal
@@ -1690,6 +1729,11 @@
             
             // Event listener para el botón de crear usuario en el modal de recargas
             createUserBtn.addEventListener('click', redirectToRegister);
+            
+            // Event listener para el botón de descarga de app
+            descargaBtn.addEventListener('click', function() {
+                showVideo('descarga');
+            });
             
             // Event listeners para los indicadores
             indicators.forEach(indicator => {
