@@ -1551,6 +1551,11 @@
                 window.open('https://www.vendeygana.net', '_blank');
             }
             
+            // Redirigir a la página de streaming
+            function redirectToStreaming() {
+                window.open('https://vendeygana2.github.io/streaming/', '_blank');
+            }
+            
             // Rotación del banner principal
             function rotateBanner() {
                 if (isAnimating) return;
@@ -1589,8 +1594,9 @@
             
             // Mostrar modal
             function showModal(target) {
+                // Comportamiento especial para streaming - redirigir en lugar de abrir modal
                 if (target === 'streaming') {
-                    showIframeModal(streamingModal, streamingIframe);
+                    redirectToStreaming();
                     return;
                 }
                 
